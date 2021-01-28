@@ -1,0 +1,9 @@
+{
+  "name": "cordova-infodigg-fcm-messaging",
+  "version": "1.0.0",
+  "description": "Plugin messaging handle based on firebase",
+  "repository": "danielmosho/cordova-infodigg-fcm-messaging",
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "MIT"
+}
