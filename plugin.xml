@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-infodigg-fcm-messaging"
-        version="1.0.0">
+        version="1.0.1">
 
     <name>InfoDigg FCM Messaging</name>
     <description>Plugin messaging handle based on firebase.</description>
@@ -11,10 +11,12 @@
     <dependency id="cordova-plugin-firebasex"/>
 
     <platform name="android">
+		<hook type="after_plugin_install" src="scripts/android/after_plugin_install.js" />
+		<hook type="before_plugin_uninstall" src="scripts/android/before_plugin_uninstall.js" />
         <source-file src="src/android/InfodiggMessagingService.java" target-dir="src/org/apache/cordova/firebase" />
-		<edit-config file="AndroidManifest.xml" target="/manifest/application/service[@android:name='org.apache.cordova.firebase.FirebasePluginMessagingService']" mode="overwrite">
+		<!--edit-config file="AndroidManifest.xml" target="/manifest/application/service[@android:name='org.apache.cordova.firebase.FirebasePluginMessagingService']" mode="merge">
 			<service android:name="org.apache.cordova.firebase.InfodiggMessagingService"/>
-		</edit-config>
+		</edit-config-->
     </platform>
 
 </plugin>
