@@ -78,17 +78,20 @@ public class InfodiggMessagingService extends FirebasePluginMessagingService {
             }
 
             //Icon
-            int resID = getResources().getIdentifier("notify", "drawable", getPackageName());
-            if (resID != 0) {
-                notificationBuilder.setSmallIcon(resID);
+            int iconID = getResources().getIdentifier("notify", "drawable", getPackageName());
+            if (iconID != 0) {
+                notificationBuilder.setSmallIcon(iconID);
             } else {
                 notificationBuilder.setSmallIcon(getApplicationInfo().icon);
             }
 
             // Color
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                int defaultColor = getResources().getColor(getResources().getIdentifier("accent", "color", getPackageName()), null);
-                notificationBuilder.setColor(defaultColor);
+				int colorID = getResources().getIdentifier("my_accent_color", "color", getPackageName());
+				if (iconID == 0) {
+					colorID = getResources().getIdentifier("accent", "color", getPackageName());
+				}
+                notificationBuilder.setColor(getResources().getColor(colorID, null));
             }
 
             //Image
