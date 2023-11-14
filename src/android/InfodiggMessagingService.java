@@ -48,7 +48,7 @@ public class InfodiggMessagingService extends FirebasePluginMessagingService {
 
             Intent intent = new Intent(this, OnNotificationOpenReceiver.class);
             intent.putExtras(bundle);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, requestCode, intent, PendingIntent.FLAG_IMMUTABLE);
 
             String title = data.get("title");
             String body = data.get("message");
@@ -87,10 +87,10 @@ public class InfodiggMessagingService extends FirebasePluginMessagingService {
 
             // Color
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-		int colorID = getResources().getIdentifier("my_accent_color", "color", getPackageName());
-		if (colorID == 0) {
-			colorID = getResources().getIdentifier("accent", "color", getPackageName());
-		}
+				int colorID = getResources().getIdentifier("my_accent_color", "color", getPackageName());
+				if (colorID == 0) {
+					colorID = getResources().getIdentifier("accent", "color", getPackageName());
+				}
                 notificationBuilder.setColor(getResources().getColor(colorID, null));
             }
 

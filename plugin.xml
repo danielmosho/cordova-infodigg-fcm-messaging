@@ -8,7 +8,7 @@
     <description>Plugin messaging handle based on firebase.</description>
     <license>MIT</license>
 
-    <dependency id="cordova-plugin-firebasex"/>
+    <dependency id="cordova-plugin-firebasex">
 
     <platform name="android">
 		<hook type="after_plugin_install" src="scripts/android/after_plugin_install.js" />
